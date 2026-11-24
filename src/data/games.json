@@ -1,0 +1,209 @@
+{
+  "fetchedOn": "2026-11-24",
+  "games": [
+    {
+      "id": 620,
+      "name": "Portal 2",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/faffc0f560786e2f05104a8d2fac837c6969bf13/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/620/ss_f3f6787d74739d3b2ec8a484b5c994b3d31ef325.1920x1080.jpg",
+      "price": "$9.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 730,
+      "name": "Counter-Strike 2",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/162664aa5da85f418105350c5d67ca565f6c3713/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/730/9c8b8fd6ebb2c84a1c38541369e6c05db7f1fbe0/ss_9c8b8fd6ebb2c84a1c38541369e6c05db7f1fbe0.1920x1080.jpg",
+      "price": "Free to play",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 105600,
+      "name": "Terraria",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/105600/ss_8c03886f214d2108cafca13845533eaa3d87d83f.1920x1080.jpg",
+      "price": "$9.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 367520,
+      "name": "Hollow Knight",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/3c3489495136b26b34f8a9543c7f5645b99d388c/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/367520/ss_5384f9f8b96a0b9934b2bc35a4058376211636d2.1920x1080.jpg",
+      "price": "$14.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 381210,
+      "name": "Dead by Daylight",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/381210/c5cf48bd5676caa7e505ef7e552598d2a01effcd/header_alt_assets_11.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/381210/5355ac410e985cac27f04b877280a984be4d28a6/ss_5355ac410e985cac27f04b877280a984be4d28a6.1920x1080.jpg",
+      "price": "$19.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 413150,
+      "name": "Stardew Valley",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_b887651a93b0525739049eb4194f633de2df75be.1920x1080.jpg",
+      "price": "$14.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 632360,
+      "name": "Risk of Rain 2",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/632360/ss_2bb49071317f7b241a527cf6e7aabd2cb6af055b.1920x1080.jpg",
+      "price": "$8.24",
+      "was": "$24.99",
+      "discount": 67
+    },
+    {
+      "id": 1086940,
+      "name": "Baldur's Gate 3",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/48a2fcbda8565bb45025e98fd8ebde8a7203f6a0/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1086940/ss_c73bc54415178c07fef85f54ee26621728c77504.1920x1080.jpg",
+      "price": "$41.99",
+      "was": "$59.99",
+      "discount": 30
+    },
+    {
+      "id": 1091500,
+      "name": "Cyberpunk 2077",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/48a93d6445a67520ea49833c93dae8f2e68fc540/header_alt_assets_9.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/ss_2f649b68d579bf87011487d29bc4ccbfdd97d34f.1920x1080.jpg",
+      "price": "$59.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 1145350,
+      "name": "Hades II",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/91ac334a2c137d08968ccc0bc474a02579602100/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1145350/ss_ef0f63061d0a0a9a7e46f3b84f125d25330e8f19.1920x1080.jpg",
+      "price": "$20.99",
+      "was": "$29.99",
+      "discount": 30
+    },
+    {
+      "id": 1174180,
+      "name": "Red Dead Redemption 2",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1174180/ss_66b553f4c209476d3e4ce25fa4714002cc914c4f.1920x1080.jpg",
+      "price": "$14.99",
+      "was": "$59.99",
+      "discount": 75
+    },
+    {
+      "id": 1222140,
+      "name": "Detroit: Become Human",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222140/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222140/ss_9c900def2b1d9a003b7d3e202ea2a7556a36e081.1920x1080.jpg",
+      "price": "$3.99",
+      "was": "$39.99",
+      "discount": 90
+    },
+    {
+      "id": 1245620,
+      "name": "ELDEN RING",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/ss_943bf6fe62352757d9070c1d33e50b92fe8539f1.1920x1080.jpg",
+      "price": "$59.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 3240220,
+      "name": "Grand Theft Auto V Enhanced",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3240220/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3240220/d61184a98c1cf2db2b08b2999c04b0519e3615bb/ss_d61184a98c1cf2db2b08b2999c04b0519e3615bb.1920x1080.jpg",
+      "price": "$19.79",
+      "was": "$44.99",
+      "discount": 56
+    },
+    {
+      "id": 3768760,
+      "name": "007 First Light",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/be65391533f072e79699be70ef2d47b7b2ac57ee/header_alt_assets_5.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3768760/ef374e5e4ede8c71f32d455652bc00f2fa7c035e/ss_ef374e5e4ede8c71f32d455652bc00f2fa7c035e.1920x1080.jpg",
+      "price": "$34.99",
+      "was": "$69.99",
+      "discount": 50
+    },
+    {
+      "id": 5210430,
+      "name": "Break the Piñatas",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5210430/5184109f118c5ef4825faefb8738ff7799bf562c/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5210430/36dbb7b8df7b80c4453c045f408d397b661ff49d/ss_36dbb7b8df7b80c4453c045f408d397b661ff49d.1920x1080.jpg",
+      "price": "$2.39",
+      "was": "$2.99",
+      "discount": 20
+    },
+    {
+      "id": 5252110,
+      "name": "Rally Dynasty",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5252110/4452cba26dede210d0e4c7b793838d626d4f99de/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5252110/ada3cb6aecbbc9f5cef36f128a50518f91aa5bc9/ss_ada3cb6aecbbc9f5cef36f128a50518f91aa5bc9.1920x1080.jpg",
+      "price": "$12.99",
+      "was": null,
+      "discount": 0
+    },
+    {
+      "id": 5516980,
+      "name": "Tidy Up: Bricks n Blocks",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5516980/3f3e4572005477fa117fca2306855712b4048e24/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5516980/4f03d4135e06258d584bb3341bd674fa87e8a6e9/ss_4f03d4135e06258d584bb3341bd674fa87e8a6e9.1920x1080.jpg",
+      "price": "$3.24",
+      "was": "$4.99",
+      "discount": 35
+    },
+    {
+      "id": 5534310,
+      "name": "Find The Needle: Haystack Hunt",
+      "image": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5534310/50502f86a8fd262a0b142043565729516609164b/header.jpg",
+      "shot": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/5534310/ce1ea589bc1340e02bd5d3e30fec116c99df95f6/ss_ce1ea589bc1340e02bd5d3e30fec116c99df95f6.1920x1080.jpg",
+      "price": "$6.79",
+      "was": "$7.99",
+      "discount": 15
+    }
+  ],
+  "lists": {
+    "featured": [
+      1086940,
+      1145350,
+      1245620,
+      367520,
+      413150
+    ],
+    "for-you": [
+      1091500,
+      105600,
+      620,
+      632360
+    ],
+    "deals": [
+      1174180,
+      3768760,
+      3240220,
+      1222140
+    ],
+    "new": [
+      5252110,
+      5516980,
+      5210430,
+      5534310
+    ],
+    "top-sellers": [
+      381210,
+      1174180,
+      730,
+      3768760
+    ]
+  }
+}

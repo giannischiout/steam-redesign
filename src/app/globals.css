@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+/* Colours measured on store.steampowered.com (home and a product page), 2026-11-24.
+   "static" keeps every token available, even before a screen uses it. */
+@theme static {
+  --color-*: initial;
+  --font-*: initial;
+
+  /* Backgrounds */
+  --color-page: #0f1924; /* home page and footer background */
+  --color-page-product: #1b2838; /* product page background */
+  --color-header: #171d25; /* top header */
+  --color-nav: #182535; /* store menu bar (middle of its gradient) */
+  --color-media: #000000; /* behind media and price boxes */
+
+  /* Text */
+  --color-text-strong: #ffffff; /* titles, prices */
+  --color-text-menu: #dcdedf; /* header links */
+  --color-text: #c6d4df; /* body text */
+  --color-text-long: #acb2b8; /* long descriptions */
+  --color-text-quiet: #8b929a; /* old prices, footer */
+
+  /* Blue */
+  --color-accent: #1a9fff; /* active menu item, search button */
+  --color-link: #67c1f5; /* links, tags, secondary buttons */
+  --color-review-positive: #66c0f4; /* positive review summary */
+  --color-button-blue-from: #47bfff; /* blue button gradient start */
+  --color-button-blue-to: #1a44c2; /* blue button gradient end */
+
+  /* Green */
+  --color-buy-from: #75b022; /* buy button gradient start */
+  --color-buy-to: #588a1b; /* buy button gradient end */
+  --color-buy-text: #d2efa9; /* buy button text */
+  --color-discount: #a1cd44; /* home discount badge, top sellers */
+  --color-discount-product: #4c6b22; /* product page discount badge */
+  --color-discount-product-text: #beee11; /* product page discount text */
+  --color-install: #5c7e10; /* Install Steam button */
+
+  /* Other */
+  --color-review-mixed: #b9a074; /* mixed review summary */
+
+  --radius-tile: 0.75rem;
+
+  /* Temporary: typeface not chosen yet. */
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-text-strong);
+    outline-offset: 3px;
+  }
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background: var(--color-page);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+  }
+}
