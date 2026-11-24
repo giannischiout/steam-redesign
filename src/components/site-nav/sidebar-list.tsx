@@ -9,7 +9,7 @@ export function SidebarList({ items, isExpanded }: SidebarListProps) {
     <ul className="grid gap-1">
       {items.map((item) => (
         <li key={item.href}>
-          <Suspense fallback={<span className="block h-11" />}>
+          <Suspense fallback={<span className="block h-10" />}>
             <SidebarLink item={item} isExpanded={isExpanded} />
           </Suspense>
         </li>

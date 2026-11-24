@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
-import { ConceptNotice } from "@/components/concept-notice";
+import { Onest, Red_Hat_Text, Sofia_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { BottomBar } from "@/components/site-nav/bottom-bar";
 import { Sidebar } from "@/components/site-nav/sidebar";
+import { fontScript } from "@/lib/font-setting";
 import "./globals.css";
+
+const redHat = Red_Hat_Text({ subsets: ["latin"], variable: "--face-red-hat" });
+const onest = Onest({ subsets: ["latin"], variable: "--face-onest", preload: false });
+const sofia = Sofia_Sans({ subsets: ["latin"], variable: "--face-sofia", preload: false });
 
 export const metadata: Metadata = {
   title: "Store redesign concept (unofficial)",
@@ -13,13 +18,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className="antialiased">
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${redHat.variable} ${onest.variable} ${sofia.variable} antialiased`}
+    >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: fontScript }} />
+      </head>
       <body>
         <div className="pb-20 md:grid md:grid-cols-[auto_minmax(0,1fr)] md:pb-0">
           <Sidebar />
           <div>
-            <ConceptNotice />
-            <div className="mx-auto w-full max-w-[100rem] px-4 md:px-8">
+            <div className="mx-auto w-full max-w-[100rem] px-4 md:px-6">
               {children}
               <SiteFooter />
             </div>

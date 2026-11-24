@@ -2,17 +2,17 @@
 
 ## This project
 - **What:** unofficial redesign concept of the Steam store, a portfolio case study. Not affiliated with Valve.
-- **Stage:** home is built as layout A (sidebar, one lead game, four beside it, tabs) with one pinned announcement strip on top. Other screens are stubs (`[...slug]`). Swatches live at `/base`. Agree idea, content and layout as rough sketches the user can see before building any screen.
+- **Stage:** home is built as layout A (sidebar, one lead game at a time (image left; badge on the image's top left; right: name, reviews, three landscape photos and the trailer in two columns, then "Next game" with image, title and a filling line, 5s, pausable; two columns in a padded card; left column is two rows: rounded image, then price on the right; no View game button, image and name are the links), player panels, tabs) with one pinned announcement banner (event art, pin icon; closing it leaves a megaphone in the top bar) on top, search at the top left and Steam's other sections as names in the top bar, sidebar and footer. Other screens are stubs (`[...slug]`). Swatches live at `/base`. Agree idea, content and layout as rough sketches the user can see before building any screen.
 - **Dev server:** port **3300** (`pnpm dev`). 3000, 3001, 3100 and 3200 belong to other projects. Only one server for this folder.
 - **Package manager:** pnpm. Checks: `pnpm lint`, `pnpm typecheck`.
 
 ## Must keep
-- Visible "unofficial concept, not affiliated with Valve" notice on every page (`src/components/concept-notice.tsx`, text in `src/lib/legal.ts`) plus Valve's trademark line in the footer.
+- (Hidden for now at the user's request while building: RESTORE `<ConceptNotice />` in the layout before anything is published.) Visible "unofficial concept, not affiliated with Valve" notice on every page (`src/components/concept-notice.tsx`, text in `src/lib/legal.ts`) plus Valve's trademark line in the footer.
 - `noindex` (layout metadata and `X-Robots-Tag` header). No lookalike domain.
 - No working login or checkout, no forms that collect data.
 - Neutral tone about the original store.
 - Logo: official Valve artwork only, unmodified, with the ®, standing alone and small (Valve's rules forbid it as a primary or prominent feature). Rules: https://partner.steamgames.com/doc/marketing/branding
-- Motiva Sans (Steam's font) is not bundled. Typeface is undecided; Arial is what Steam's own product pages use for much of their text.
+- Motiva Sans (Steam's font) is not bundled. Typeface: Red Hat Text (confirmed). `/settings` lets a visitor switch to Onest or Sofia Sans (`src/lib/font-setting.ts`, saved in localStorage).
 - No decoration: no stickers, tape, dividers, selective colour or tinting.
 
 ## Where code goes

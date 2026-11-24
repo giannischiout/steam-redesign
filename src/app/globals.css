@@ -39,13 +39,62 @@
   /* Other */
   --color-review-mixed: #b9a074; /* mixed review summary */
 
-  --radius-tile: 0.75rem;
+  /* Ours */
+  --color-alert: #ff3b3b; /* new notification dot */
 
-  /* Temporary: typeface not chosen yet. */
-  --font-sans: Arial, Helvetica, sans-serif;
+  --color-discount-badge: #435f1d; /* Steam's badge green, darker for contrast */
+
+  --radius-tile: 0.75rem; /* cards */
+  --radius-media: 0.5rem; /* main image inside a card */
+  --radius-thumb: 0.375rem; /* small pictures */
+
+  --font-red-hat: var(--face-red-hat), Arial, Helvetica, sans-serif;
+  --font-onest: var(--face-onest), Arial, Helvetica, sans-serif;
+  --font-sofia: var(--face-sofia), Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-red-hat);
+}
+
+/* Featured: the bar that fills up before the next game. No automatic change
+   with reduced motion, and it waits while the keyboard is inside. */
+@keyframes rotator-fill {
+  from {
+    transform: scaleX(0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@utility fade-in {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: fade-in 400ms ease-out;
+  }
+}
+@utility rotator-fill {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: rotator-fill 5s linear;
+  }
+}
+@utility rotator-pause {
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}
+@utility rotator {
+  &:is([data-paused], :has(:focus-visible)) .rotator-fill {
+    animation-play-state: paused;
+  }
 }
 
 @layer base {
+  /* Chosen in Settings. */
+  html[data-font="onest"] {
+    --font-sans: var(--font-onest);
+  }
+  html[data-font="sofia"] {
+    --font-sans: var(--font-sofia);
+  }
   :focus-visible {
     outline: 2px solid var(--color-text-strong);
     outline-offset: 3px;

@@ -5,7 +5,7 @@ export function TypeSection() {
         Type
       </h2>
       <p className="text-sm text-text-long">
-        Arial for now. The typeface is not chosen yet.
+        Red Hat Text
       </p>
       <p className="text-4xl font-bold text-text-strong">
         Featured and recommended

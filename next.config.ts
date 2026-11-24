@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       new URL("https://shared.akamai.steamstatic.com/store_item_assets/**"),
+      new URL("https://shared.fastly.steamstatic.com/store_item_assets/steam/clusters/**"),
     ],
   },
   cacheComponents: true,

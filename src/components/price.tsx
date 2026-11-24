@@ -1,16 +1,25 @@
 import type { Game } from "@/lib/catalog";
+import { cn } from "@/lib/cn";
 
-type PriceProps = { game: Pick<Game, "price" | "was" | "discount"> };
+type PriceProps = {
+  game: Pick<Game, "price" | "was" | "discount">;
+  size?: "normal" | "large";
+};
 
-export function Price({ game }: PriceProps) {
+export function Price({ game, size = "normal" }: PriceProps) {
   return (
-    <span className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+    <span
+      className={cn(
+        "flex flex-wrap items-center gap-x-2 gap-y-1",
+        size === "large" ? "text-base md:text-xl" : "text-sm",
+      )}
+    >
       {game.was && (
-        <span className="rounded bg-discount px-1.5 font-bold text-media">
+        <span className="rounded bg-discount-badge px-1.5 font-semibold text-discount-product-text">
           -{game.discount}%
         </span>
       )}
-      <span className="text-text-strong">{game.price}</span>
+      <span className="font-semibold text-text-strong">{game.price}</span>
       {game.was && (
         <s className="text-text-long">
           <span className="sr-only">Was </span>
