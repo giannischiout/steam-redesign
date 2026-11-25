@@ -14,7 +14,7 @@ export function TopLinks() {
           <Link
             href={link.href}
             aria-current={pathname === link.href ? "page" : undefined}
-            className="flex h-11 items-center rounded-full px-3 text-sm font-medium text-text-menu hover:text-text-strong aria-[current]:text-accent 2xl:px-4"
+            className="flex h-11 min-w-11 items-center justify-center rounded-full px-3 text-sm font-medium text-text-menu hover:text-text-strong aria-[current]:text-accent 2xl:px-4"
           >
             {link.label}
           </Link>

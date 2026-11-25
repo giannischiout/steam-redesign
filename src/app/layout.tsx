@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Onest, Red_Hat_Text, Sofia_Sans } from "next/font/google";
+import { PageScrollbar } from "@/components/page-scrollbar";
+import { Search } from "@/components/search/search";
 import { SiteFooter } from "@/components/site-footer";
 import { BottomBar } from "@/components/site-nav/bottom-bar";
 import { Sidebar } from "@/components/site-nav/sidebar";
-import { fontScript } from "@/lib/font-setting";
+import { SiteSettings } from "@/components/settings/site-settings";
+import { settingsScript } from "@/lib/settings-script";
+import "overlayscrollbars/overlayscrollbars.css";
 import "./globals.css";
 
 const redHat = Red_Hat_Text({ subsets: ["latin"], variable: "--face-red-hat" });
@@ -21,12 +25,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       suppressHydrationWarning
+      data-overlayscrollbars-initialize
       className={`${redHat.variable} ${onest.variable} ${sofia.variable} antialiased`}
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: fontScript }} />
+        <script dangerouslySetInnerHTML={{ __html: settingsScript }} />
       </head>
-      <body>
+      <body data-overlayscrollbars-initialize>
         <div className="pb-20 md:grid md:grid-cols-[auto_minmax(0,1fr)] md:pb-0">
           <Sidebar />
           <div>
@@ -37,6 +42,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </div>
         </div>
         <BottomBar />
+        <Search />
+        <SiteSettings />
+        <PageScrollbar />
       </body>
     </html>
   );

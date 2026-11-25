@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { cn } from "@/lib/cn";
 import type { NavItem } from "@/lib/navigation";
+import { sidebarIcon, sidebarLabel, sidebarRow } from "./sidebar-item-styles";
 
 type SidebarLinkProps = { item: NavItem; isExpanded: boolean };
 
@@ -13,20 +15,20 @@ export function SidebarLink({ item, isExpanded }: SidebarLinkProps) {
     <Link
       href={item.href}
       aria-current={isCurrent ? "page" : undefined}
-      className="group relative flex h-10 items-center rounded-full text-sm text-text-menu hover:text-text-strong aria-[current]:bg-page-product aria-[current]:text-text-strong"
+      className={cn(
+        sidebarRow,
+        // Dock: a solid square. Quiet: a blue mark at the edge. Classic: a soft square.
+        "aria-[current]:bg-text-strong aria-[current]:text-page",
+        "quiet:aria-[current]:bg-transparent quiet:aria-[current]:text-text-strong quiet:aria-[current]:before:absolute quiet:aria-[current]:before:-left-[1.125rem] quiet:aria-[current]:before:h-5 quiet:aria-[current]:before:w-[3px] quiet:aria-[current]:before:rounded-r-full quiet:aria-[current]:before:bg-accent",
+        "classic:aria-[current]:bg-page-product classic:aria-[current]:text-text-strong",
+      )}
     >
-      <span className="grid h-10 w-11 shrink-0 place-content-center">
+      <span className={sidebarIcon}>
         <item.Icon aria-hidden="true" size={22} />
       </span>
-      <span
-        className={
-          isExpanded
-            ? "truncate pr-4"
-            : "pointer-events-none absolute left-full z-20 ml-3 rounded-lg bg-text-strong px-3 py-2 whitespace-nowrap text-page opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"
-        }
-      >
+      <span className={sidebarLabel(isExpanded)}>
         {item.label}
-        {item.count && <span className={isExpanded ? "ml-2 text-text-long" : "ml-2"}>{item.count}</span>}
+        {item.count && <span className={cn("ml-2 opacity-70", isExpanded && "classic:text-text-long classic:opacity-100")}>{item.count}</span>}
       </span>
     </Link>
   );

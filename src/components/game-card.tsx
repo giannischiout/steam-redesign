@@ -2,23 +2,27 @@ import Image from "next/image";
 import Link from "next/link";
 import { Price } from "@/components/price";
 import { ReviewSummary } from "@/components/review-summary";
-import type { Game } from "@/lib/catalog";
+import type { BrowseGame } from "@/lib/browse";
+import { formatFacts } from "@/lib/format";
 
-type GameCardProps = { game: Game };
+type GameCardProps = {
+  game: Pick<
+    BrowseGame,
+    "id" | "name" | "image" | "shot" | "genres" | "released" | "reviews" | "price" | "was" | "discount"
+  >;
+};
 
 const sizes = "(min-width: 1024px) 22vw, 50vw";
 
 /** Hover or focus shows a screenshot in place of the cover. */
 export function GameCard({ game }: GameCardProps) {
-  const [shot] = game.shots;
-
   return (
     <Link href={`/game/${game.id}`} className="group grid gap-1.5 rounded-tile">
       <span className="relative mb-1 block aspect-[460/215] overflow-hidden rounded-tile bg-page-product">
         <Image src={game.image} alt="" fill sizes={sizes} className="object-cover" />
-        {shot && (
+        {game.shot && (
           <Image
-            src={shot}
+            src={game.shot}
             alt=""
             fill
             sizes={sizes}
@@ -26,9 +30,8 @@ export function GameCard({ game }: GameCardProps) {
           />
         )}
       </span>
-      <span className="font-semibold text-text-strong group-hover:underline">
-        {game.name}
-      </span>
+      <span className="font-semibold text-text-strong group-hover:underline">{game.name}</span>
+      <span className="text-sm text-text-long">{formatFacts(game.genres.slice(0, 1), game.released)}</span>
       <ReviewSummary reviews={game.reviews} />
       <Price game={game} />
     </Link>

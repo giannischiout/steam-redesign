@@ -1,50 +1,47 @@
 "use client";
 
-import { IconPinFilled, IconX } from "@tabler/icons-react";
-import { getImageProps } from "next/image";
+import { IconX } from "@tabler/icons-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useAnnouncementOpen } from "@/hooks/use-announcement-open";
 import { announcement } from "@/lib/announcement";
-
-const round = "grid size-11 place-content-center rounded-full bg-page text-text-strong";
 
 export function AnnouncementBanner() {
   const { open, setOpen } = useAnnouncementOpen();
   if (!announcement || !open) return null;
 
-  const common = { alt: "", loading: "eager" as const };
-  const wide = getImageProps({ ...common, src: announcement.wideImage, width: 1850, height: 450, sizes: "95vw" });
-  const phone = getImageProps({ ...common, src: announcement.phoneImage, width: 500, height: 350, sizes: "100vw" });
-
   return (
-    <aside aria-label="Pinned announcement" className="relative overflow-hidden rounded-tile">
+    <aside
+      aria-label="Pinned announcement"
+      className="flex items-center gap-2 rounded-tile bg-page-product p-2 md:pr-3"
+    >
       <Link
         href={announcement.href}
-        aria-label={`${announcement.title}. ${announcement.detail}`}
-        className="block -outline-offset-4"
+        className="group flex min-w-0 flex-1 items-center gap-3 rounded-media md:gap-4"
       >
-        <picture>
-          <source media="(min-width: 768px)" srcSet={wide.props.srcSet} sizes="95vw" />
-          <img
-            {...phone.props}
+        <span className="relative block size-14 shrink-0 overflow-hidden rounded-media md:w-40">
+          <Image
+            src={announcement.image}
             alt=""
-            className="w-full object-cover object-top md:h-[clamp(11rem,17.5vw,17rem)]"
+            fill
+            loading="eager"
+            sizes="320px"
+            className="object-cover object-bottom"
           />
-        </picture>
-      </Link>
-      <div className="absolute right-2 bottom-2 flex gap-2 md:top-3 md:right-3 md:bottom-auto">
-        <span title="Pinned" className={round}>
-          <IconPinFilled aria-hidden="true" size={20} />
         </span>
-        <button
-          type="button"
-          aria-label="Close announcement"
-          onClick={() => setOpen(false)}
-          className={`${round} cursor-pointer`}
-        >
-          <IconX aria-hidden="true" size={20} />
-        </button>
-      </div>
+        <span className="grid min-w-0">
+          <span className="font-semibold text-text-strong group-hover:underline">{announcement.title}</span>
+          <span className="text-sm text-balance text-text-long">{announcement.detail}</span>
+        </span>
+      </Link>
+      <button
+        type="button"
+        aria-label="Close announcement"
+        onClick={() => setOpen(false)}
+        className="grid size-11 shrink-0 cursor-pointer place-content-center rounded-full text-text-menu hover:text-text-strong"
+      >
+        <IconX aria-hidden="true" size={20} />
+      </button>
     </aside>
   );
 }

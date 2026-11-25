@@ -11,6 +11,3 @@ export const fontOptions: { key: FontKey; label: string; className: string }[] =
   { key: "onest", label: "Onest", className: "font-onest" },
   { key: "sofia", label: "Sofia Sans", className: "font-sofia" },
 ];
-
-/** Runs before first paint, so the saved font does not flash in late. */
-export const fontScript = `try{var f=localStorage.getItem("${fontStorageKey}");if(${JSON.stringify(fontSchema.options)}.includes(f))document.documentElement.dataset.font=f}catch{}`;

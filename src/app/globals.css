@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Sidebar looks, chosen in Settings. No variant means the floating dock. */
+@custom-variant quiet (&:where([data-sidebar="quiet"] *));
+@custom-variant classic (&:where([data-sidebar="classic"] *));
+
 /* Colours measured on store.steampowered.com (home and a product page), 2026-11-24.
    "static" keeps every token available, even before a screen uses it. */
 @theme static {
@@ -55,7 +59,7 @@
 }
 
 /* Featured: the bar that fills up before the next game. No automatic change
-   with reduced motion, and it waits while the keyboard is inside. */
+   with reduced motion, and it waits while the keyboard is inside or the details are open. */
 @keyframes rotator-fill {
   from {
     transform: scaleX(0);
@@ -73,7 +77,7 @@
 }
 @utility rotator-fill {
   @media (prefers-reduced-motion: no-preference) {
-    animation: rotator-fill 5s linear;
+    animation: rotator-fill 10s linear;
   }
 }
 @utility rotator-pause {
@@ -83,6 +87,96 @@
 }
 @utility rotator {
   &:is([data-paused], :has(:focus-visible)) .rotator-fill {
+    animation-play-state: paused;
+  }
+}
+
+/* Gift cards: the two tilted cards open up once on load. */
+@keyframes gift-fan {
+  from {
+    rotate: var(--gift-from);
+  }
+}
+@utility gift-fan {
+  & > :nth-child(1) {
+    --gift-from: -10deg;
+  }
+  & > :nth-child(2) {
+    --gift-from: -5deg;
+  }
+}
+@utility gift-fan-card {
+  transform-origin: bottom;
+  @media (prefers-reduced-motion: no-preference) {
+    animation: gift-fan 500ms ease-out 400ms both;
+  }
+}
+
+/* Discovery queue: two lines of games that move in opposite directions. Still
+   with reduced motion, and only the button pauses them. */
+@keyframes queue-line {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@utility queue-line {
+  @media (prefers-reduced-motion: no-preference) {
+    animation: queue-line 300s linear infinite;
+  }
+}
+@utility queue-pause {
+  @media (prefers-reduced-motion: reduce) {
+    display: none;
+  }
+}
+@utility queue-motion {
+  &[data-paused] .queue-line {
+    animation-play-state: paused;
+  }
+}
+
+/* Filters on phone: the drawer rises from the bottom. */
+@keyframes filter-drawer {
+  from {
+    translate: 0 100%;
+  }
+}
+@utility filter-drawer {
+  &[open] {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: filter-drawer 250ms ease-out;
+    }
+  }
+}
+html:has(.filter-drawer[open]) {
+  overflow: hidden;
+}
+
+/* Scrollbar (OverlayScrollbars): floats over the content, so nothing shifts when it shows. */
+.os-theme-store {
+  --os-size: 12px;
+  --os-padding-perpendicular: 3px;
+  --os-padding-axis: 3px;
+  --os-handle-border-radius: 999px;
+  --os-handle-bg: color-mix(in srgb, var(--color-text) 40%, transparent);
+  --os-handle-bg-hover: color-mix(in srgb, var(--color-text) 60%, transparent);
+  --os-handle-bg-active: color-mix(in srgb, var(--color-text) 75%, transparent);
+  --os-handle-min-size: 44px;
+}
+
+/* Search window: it holds the page still, and the featured games wait behind it. */
+@utility search-dialog {
+  &[open],
+  &[open]::backdrop {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: fade-in 150ms ease-out;
+    }
+  }
+}
+html:has(.search-dialog[open]) {
+  overflow: hidden;
+
+  .rotator-fill {
     animation-play-state: paused;
   }
 }

@@ -2,9 +2,9 @@
 
 import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 
-type TabsProps = { tabs: { key: string; label: string; panel: ReactNode }[] };
+type TabsProps = { tabs: { key: string; label: string; panel: ReactNode }[]; aside: ReactNode };
 
-export function Tabs({ tabs }: TabsProps) {
+export function Tabs({ tabs, aside }: TabsProps) {
   const [active, setActive] = useState(0);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -24,6 +24,7 @@ export function Tabs({ tabs }: TabsProps) {
 
   return (
     <div className="grid gap-5">
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
       <div
         role="tablist"
         aria-label="Games"
@@ -48,6 +49,8 @@ export function Tabs({ tabs }: TabsProps) {
             {tab.label}
           </button>
         ))}
+      </div>
+      {aside}
       </div>
       {tabs.map((tab, index) => (
         <div

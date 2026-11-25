@@ -4,10 +4,21 @@ import data from "@/data/games.json";
 const gameSchema = z.object({
   id: z.number(),
   name: z.string(),
+  about: z.string(),
+  genres: z.array(z.string()),
+  tags: z.array(z.string()),
+  developers: z.array(z.string()),
+  publishers: z.array(z.string()),
+  players: z.array(z.string()),
+  platforms: z.array(z.string()),
+  released: z.string(),
+  releasedAt: z.number(),
   image: z.url(),
+  poster: z.url(),
   shots: z.array(z.url()),
-  trailer: z.object({ hls: z.url(), mp4: z.url(), poster: z.url() }).nullable(),
+  trailer: z.object({ hls: z.url(), loop: z.url() }).nullable(),
   price: z.string(),
+  cents: z.number(),
   was: z.string().nullable(),
   discount: z.number(),
   reviews: z
@@ -31,6 +42,17 @@ const byId = new Map(catalog.games.map((game) => [game.id, game]));
 
 export function getGame(id: number): Game | undefined {
   return byId.get(id);
+}
+
+export function getAllGames(): Game[] {
+  return catalog.games;
+}
+
+/** A studio's games as developer or publisher, newest first. */
+export function getGamesBy(creator: string): Game[] {
+  return catalog.games
+    .filter((game) => game.developers.includes(creator) || game.publishers.includes(creator))
+    .toSorted((a, b) => b.releasedAt - a.releasedAt);
 }
 
 export function getList(key: ListKey): Game[] {

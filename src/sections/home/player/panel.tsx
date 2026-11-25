@@ -10,7 +10,7 @@ export function Panel({ id, title, href, children }: PanelProps) {
         <h2 id={id} className="text-lg font-bold text-text-strong">
           {title}
         </h2>
-        <Link href={href} aria-label={`See all, ${title}`} className="py-2 text-sm text-link hover:underline">
+        <Link href={href} aria-label={`See all, ${title}`} className="-my-2 flex min-h-11 min-w-11 items-center justify-end text-sm text-link hover:underline">
           See all
         </Link>
       </div>

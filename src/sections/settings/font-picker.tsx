@@ -1,11 +1,14 @@
 "use client";
 
+import { useId } from "react";
 import { useFontSetting } from "@/hooks/use-font-setting";
 import { cn } from "@/lib/cn";
 import { fontOptions } from "@/lib/font-setting";
 
 export function FontPicker() {
   const { font, setFont } = useFontSetting();
+  // The floating panel has its own font choices, so the radio group needs its own name.
+  const name = useId();
 
   return (
     <fieldset>
@@ -22,7 +25,7 @@ export function FontPicker() {
             <span className="flex items-center gap-3 font-semibold text-text-strong">
               <input
                 type="radio"
-                name="font"
+                name={name}
                 value={option.key}
                 checked={font === option.key}
                 onChange={() => setFont(option.key)}
@@ -31,7 +34,7 @@ export function FontPicker() {
               {option.label}
             </span>
             <span className="text-2xl font-bold text-text-strong">Baldur&apos;s Gate 3</span>
-            <span className="text-sm">Overwhelmingly Positive, $41.99</span>
+            <span className="text-sm">Overwhelmingly Positive, 41,99€</span>
           </label>
         ))}
       </div>

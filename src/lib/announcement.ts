@@ -4,8 +4,7 @@ type Announcement = {
   title: string;
   detail: string;
   href: string;
-  wideImage: string;
-  phoneImage: string;
+  image: string;
 };
 
 const art =
@@ -15,6 +14,5 @@ export const announcement: Announcement | null = {
   title: "The 2026 Steam Awards",
   detail: "Nominate until Nov 30, 10 AM PT",
   href: "/news/steam-awards",
-  wideImage: `${art}/beb9cc85424681d7d3941f8a7613573ec7e8dbb8/page_bg_english.jpg`,
-  phoneImage: `${art}/639ddae4ac26265e685f21f3b8eaf330f376d47b/page_bg_mobile_english.jpg`,
+  image: `${art}/639ddae4ac26265e685f21f3b8eaf330f376d47b/page_bg_mobile_english.jpg`,
 };
