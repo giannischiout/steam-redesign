@@ -11,7 +11,7 @@ export function WishlistButton({ name, isSaved, onToggle }: WishlistButtonProps)
       aria-label={`Wishlist ${name}`}
       aria-pressed={isSaved}
       onClick={onToggle}
-      className="flex h-11 cursor-pointer items-center gap-2 rounded-full bg-page px-4 text-sm font-semibold text-text-menu hover:text-text-strong aria-pressed:text-text-strong"
+      className="flex h-11 cursor-pointer items-center justify-center gap-2 rounded-full bg-page px-4 text-sm font-semibold text-text-menu hover:text-text-strong aria-pressed:text-text-strong"
     >
       <Icon aria-hidden="true" size={18} />
       {isSaved ? "On wishlist" : "Wishlist"}

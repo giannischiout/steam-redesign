@@ -3,6 +3,7 @@ import { AnnouncementBanner } from "@/sections/home/announcement-banner";
 import { Categories } from "@/sections/home/categories";
 import { Community } from "@/sections/home/community";
 import { Creators } from "@/sections/home/creators";
+import { Deals } from "@/sections/home/deals";
 import { DiscoveryQueue } from "@/sections/home/discovery-queue";
 import { Featured } from "@/sections/home/featured";
 import { GameTabs } from "@/sections/home/game-tabs";
@@ -21,6 +22,7 @@ export default function Home() {
           <Featured />
         </div>
         <Player />
+        <Deals />
         <DiscoveryQueue />
         <Categories />
         <Community />

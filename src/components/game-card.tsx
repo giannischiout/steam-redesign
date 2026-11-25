@@ -5,10 +5,13 @@ import { ReviewSummary } from "@/components/review-summary";
 import type { BrowseGame } from "@/lib/browse";
 import { formatFacts } from "@/lib/format";
 
+/** `note` takes the place of the reviews, for a game that cannot have any yet. */
+export type CardGame = BrowseGame & { note?: string };
+
 type GameCardProps = {
   game: Pick<
-    BrowseGame,
-    "id" | "name" | "image" | "shot" | "genres" | "released" | "reviews" | "price" | "was" | "discount"
+    CardGame,
+    "id" | "name" | "image" | "shot" | "genres" | "released" | "reviews" | "price" | "was" | "discount" | "note"
   >;
 };
 
@@ -32,7 +35,11 @@ export function GameCard({ game }: GameCardProps) {
       </span>
       <span className="font-semibold text-text-strong group-hover:underline">{game.name}</span>
       <span className="text-sm text-text-long">{formatFacts(game.genres.slice(0, 1), game.released)}</span>
-      <ReviewSummary reviews={game.reviews} />
+      {game.note ? (
+        <span className="text-sm text-text-long">{game.note}</span>
+      ) : (
+        <ReviewSummary reviews={game.reviews} />
+      )}
       <Price game={game} />
     </Link>
   );

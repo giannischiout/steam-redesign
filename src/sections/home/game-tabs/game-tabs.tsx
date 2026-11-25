@@ -3,13 +3,13 @@
 import { IconAdjustmentsFilled } from "@tabler/icons-react";
 import Link from "next/link";
 import { useState } from "react";
-import { GameCard } from "@/components/game-card";
+import { GameCard, type CardGame } from "@/components/game-card";
 import { SectionTitle } from "@/components/section-title";
-import { browseHref, filterGames, noFilters, type BrowseGame, type Filters } from "@/lib/browse";
+import { browseHref, filterGames, noFilters, type Filters } from "@/lib/browse";
 import { QuickFilters } from "./quick-filters";
 import { Tabs } from "./tabs";
 
-type GameTabsProps = { lists: { key: string; label: string; games: BrowseGame[] }[] };
+type GameTabsProps = { lists: { key: string; label: string; games: CardGame[] }[] };
 
 const SHOWN = 8;
 

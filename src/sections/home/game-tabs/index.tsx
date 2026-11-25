@@ -1,5 +1,6 @@
+import type { CardGame } from "@/components/game-card";
 import { toBrowseGame } from "@/lib/browse";
-import { getList } from "@/lib/catalog";
+import { getList, getUpcoming } from "@/lib/catalog";
 import { GameTabs as Tabs } from "./game-tabs";
 
 const lists = [
@@ -10,5 +11,10 @@ const lists = [
 ] as const;
 
 export function GameTabs() {
-  return <Tabs lists={lists.map(({ key, label }) => ({ key, label, games: getList(key).map(toBrowseGame) }))} />;
+  const tabs: { key: string; label: string; games: CardGame[] }[] = lists.map(({ key, label }) => ({ key, label, games: getList(key).map((game) => toBrowseGame(game)) }));
+  const upcoming = getUpcoming().map((game) => ({ ...toBrowseGame(game), note: "Not out yet" }));
+  // Upcoming sits next to New.
+  tabs.splice(3, 0, { key: "upcoming", label: "Upcoming", games: upcoming });
+
+  return <Tabs lists={tabs} />;
 }
