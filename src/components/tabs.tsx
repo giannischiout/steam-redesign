@@ -2,9 +2,14 @@
 
 import { useRef, useState, type KeyboardEvent, type ReactNode } from "react";
 
-type TabsProps = { tabs: { key: string; label: string; panel: ReactNode }[]; aside: ReactNode };
+type TabsProps = {
+  /** Names the set of tabs for screen readers. */
+  label: string;
+  tabs: { key: string; label: string; icon?: ReactNode; panel: ReactNode }[];
+  aside?: ReactNode;
+};
 
-export function Tabs({ tabs, aside }: TabsProps) {
+export function Tabs({ label, tabs, aside }: TabsProps) {
   const [active, setActive] = useState(0);
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
 
@@ -27,7 +32,7 @@ export function Tabs({ tabs, aside }: TabsProps) {
       <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-2">
       <div
         role="tablist"
-        aria-label="Games"
+        aria-label={label}
         onKeyDown={onKeyDown}
         className="flex flex-wrap gap-2"
       >
@@ -44,8 +49,9 @@ export function Tabs({ tabs, aside }: TabsProps) {
             aria-selected={index === active}
             tabIndex={index === active ? 0 : -1}
             onClick={() => setActive(index)}
-            className="h-11 cursor-pointer rounded-full px-4 text-sm text-text-menu hover:text-text-strong aria-selected:bg-page-product aria-selected:text-text-strong"
+            className="flex h-11 cursor-pointer items-center gap-2 rounded-full px-4 text-sm text-text-menu hover:text-text-strong aria-selected:bg-page-product aria-selected:text-text-strong"
           >
+            {tab.icon}
             {tab.label}
           </button>
         ))}

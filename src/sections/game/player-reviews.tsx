@@ -1,12 +1,12 @@
 import { ReviewSummary } from "@/components/review-summary";
 import { SectionHeader } from "@/components/section-header";
-import { communityPicks } from "@/data/community-picks";
 import type { Game } from "@/lib/catalog";
 import { formatCount } from "@/lib/format";
+import { sampleReviews } from "@/lib/sample-reviews";
+import { ReviewRotator } from "./review-rotator";
 
-/** Steam's review totals, plus the made-up recommendation if this game has one. */
+/** Steam's review totals, then sample reviews that are marked as made up. */
 export function PlayerReviews({ game }: { game: Game }) {
-  const pick = communityPicks.find((entry) => entry.gameId === game.id);
   const { reviews } = game;
 
   return (
@@ -26,13 +26,11 @@ export function PlayerReviews({ game }: { game: Game }) {
         ) : (
           <p>No reviews yet.</p>
         )}
-        {pick && (
-          <figure className="grid gap-2 rounded-media bg-page p-4">
-            <blockquote className="text-lg text-pretty text-text-strong">“{pick.quote}”</blockquote>
-            <figcaption className="text-sm text-text-long">
-              {pick.player}, {pick.hours} hours played
-            </figcaption>
-          </figure>
+        {reviews && (
+          <div className="grid gap-2">
+            <p className="text-sm text-text-long">Sample reviews, made up for this concept.</p>
+            <ReviewRotator key={game.id} reviews={sampleReviews(game.id, reviews.percent)} />
+          </div>
         )}
       </div>
     </section>

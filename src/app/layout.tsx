@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Onest, Red_Hat_Text, Sofia_Sans } from "next/font/google";
+import { ConceptNotice } from "@/components/concept-notice";
 import { PageScrollbar } from "@/components/page-scrollbar";
 import { Search } from "@/components/search/search";
 import { SiteFooter } from "@/components/site-footer";
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <script dangerouslySetInnerHTML={{ __html: settingsScript }} />
       </head>
       <body data-overlayscrollbars-initialize>
+        <ConceptNotice />
         <div className="pb-20 md:grid md:grid-cols-[auto_minmax(0,1fr)] md:pb-0">
           <Sidebar />
           <div>

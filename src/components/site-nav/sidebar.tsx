@@ -31,7 +31,7 @@ export function Sidebar() {
       aria-label="Main"
       className={cn(
         // Dock: 12px all round, and none on the right, where the page brings its own 24px.
-        "sticky top-0 z-10 hidden h-dvh flex-col p-3 pr-0 motion-safe:transition-[width] motion-safe:duration-200 md:flex classic:border-r classic:border-text-quiet/25 classic:p-5",
+        "sticky top-0 z-10 hidden h-[calc(100dvh-2rem)] flex-col p-3 pr-0 motion-safe:transition-[width] motion-safe:duration-250 motion-safe:ease-out md:flex classic:border-r classic:border-text-quiet/25 classic:p-5",
         isExpanded ? "w-60" : "w-17 classic:w-[5.25rem]",
       )}
     >
@@ -39,7 +39,7 @@ export function Sidebar() {
         <SidebarLogo isExpanded={isExpanded} />
       </div>
       <SidebarEdgeToggle isExpanded={isExpanded} onToggle={toggle} />
-      <div className="mt-4 grid gap-3 quiet:gap-5 classic:mt-0">
+      <div className="mt-4 grid grid-cols-[minmax(0,1fr)] gap-3 quiet:gap-5 classic:mt-0">
         {sidebarGroups.map((items, index) => (
           <div
             key={items[0]?.href}

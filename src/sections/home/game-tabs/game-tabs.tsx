@@ -7,7 +7,7 @@ import { GameCard, type CardGame } from "@/components/game-card";
 import { SectionTitle } from "@/components/section-title";
 import { browseHref, filterGames, noFilters, type Filters } from "@/lib/browse";
 import { QuickFilters } from "./quick-filters";
-import { Tabs } from "./tabs";
+import { Tabs } from "@/components/tabs";
 
 type GameTabsProps = { lists: { key: string; label: string; games: CardGame[] }[] };
 
@@ -46,6 +46,7 @@ export function GameTabs({ lists }: GameTabsProps) {
     <section aria-labelledby="games-title" className="grid gap-3 md:gap-4">
       <SectionTitle id="games-title">Browse games</SectionTitle>
       <Tabs
+        label="Games"
         tabs={tabs}
         aside={
           <div className="flex flex-wrap items-center gap-2">

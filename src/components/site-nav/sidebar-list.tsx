@@ -6,7 +6,7 @@ type SidebarListProps = { items: NavItem[]; isExpanded: boolean };
 
 export function SidebarList({ items, isExpanded }: SidebarListProps) {
   return (
-    <ul className="grid gap-1">
+    <ul className="grid grid-cols-[minmax(0,1fr)] gap-1">
       {items.map((item) => (
         <li key={item.href}>
           <Suspense fallback={<span className="block h-10" />}>
