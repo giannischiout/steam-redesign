@@ -29,23 +29,25 @@ export function ActiveFilters({ filters, onChange, onClear }: ActiveFiltersProps
   const chips = getChips(filters);
   if (chips.length === 0) return null;
 
+  // Rows are 12px apart, so the tap areas of two rows do not overlap.
   return (
-    <ul aria-label="Active filters" className="flex flex-wrap items-center gap-2">
+    <ul aria-label="Active filters" className="flex flex-wrap items-center gap-x-2 gap-y-3 py-1.5">
       {chips.map((chip) => (
         <li key={chip.label}>
           <button
             type="button"
             aria-label={`Remove ${chip.label}`}
             onClick={() => onChange(chip.removed)}
-            className="flex h-11 cursor-pointer items-center gap-2 rounded-full bg-page-product pr-3 pl-4 text-sm text-text-strong"
+            // Small and faint, unlike the filter buttons. `after` keeps the tap area 44px high.
+            className="relative flex h-8 cursor-pointer items-center gap-1.5 rounded-full border border-text-quiet/30 pr-2.5 pl-3 text-xs text-text-long after:absolute after:inset-x-0 after:-inset-y-1.5 hover:border-text-quiet/60 hover:text-text-strong"
           >
             {chip.label}
-            <IconX aria-hidden="true" size={16} />
+            <IconX aria-hidden="true" size={14} />
           </button>
         </li>
       ))}
       <li>
-        <button type="button" onClick={onClear} className="h-11 cursor-pointer px-2 text-sm text-link hover:underline">
+        <button type="button" onClick={onClear} className="relative h-8 min-w-11 cursor-pointer px-1 text-xs text-link after:absolute after:inset-x-0 after:-inset-y-1.5 hover:underline">
           Clear all
         </button>
       </li>

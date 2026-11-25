@@ -89,7 +89,8 @@ function matches(game: BrowseGame, filters: Filters): boolean {
   return (
     isPriceOk &&
     game.name.toLowerCase().includes(filters.q.toLowerCase()) &&
-    tags.every((tag) => game.tags.includes(tag)) &&
+    // Any ticked category will do. The other filters each narrow the results.
+    (tags.length === 0 || tags.some((tag) => game.tags.includes(tag))) &&
     filters.players.every((mode) => game.players.includes(mode)) &&
     filters.platform.every((platform) => game.platforms.includes(platform)) &&
     (filters.reviews === "any" || (game.reviews?.percent ?? 0) >= Number(filters.reviews)) &&

@@ -19,12 +19,12 @@ export function QuickFilters({ filters, onChange }: QuickFiltersProps) {
       </ToggleChip>
       <SelectField
         label="Category"
-        value={filters.category[0] ?? ""}
+        value={filters.category[0] ?? "any"}
         options={[
-          { value: "", label: "Any category" },
+          { value: "any", label: "Any category" },
           ...categories.map(({ slug, name }) => ({ value: slug, label: name })),
         ]}
-        onChange={(slug) => onChange({ category: slug ? [slug] : [] })}
+        onChange={(slug) => onChange({ category: slug === "any" ? [] : [slug] })}
       />
     </>
   );

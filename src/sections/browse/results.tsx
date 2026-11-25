@@ -22,7 +22,7 @@ export function Results({ games, onClear }: ResultsProps) {
 
   return (
     <>
-      <ul className="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 lg:gap-x-6 2xl:grid-cols-4">
+      <ul className="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 lg:grid-cols-4 lg:gap-x-6 filters-side:lg:grid-cols-3 filters-side:2xl:grid-cols-4">
         {games.slice(0, shown).map((game) => (
           <li key={game.id}>
             <GameCard game={game} />

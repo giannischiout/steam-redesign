@@ -1,9 +1,11 @@
+import { filtersLayoutSchema, filtersLayoutStorageKey } from "./filters-layout-setting";
 import { fontSchema, fontStorageKey } from "./font-setting";
 import { sidebarSchema, sidebarStorageKey } from "./sidebar-setting";
 
 const saved: [key: string, allowed: string[]][] = [
   [fontStorageKey, fontSchema.options],
   [sidebarStorageKey, sidebarSchema.options],
+  [filtersLayoutStorageKey, filtersLayoutSchema.options],
 ];
 
 /** Runs before first paint, so saved choices do not flash in late. */

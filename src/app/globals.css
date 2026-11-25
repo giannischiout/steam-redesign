@@ -3,6 +3,8 @@
 /* Sidebar looks, chosen in Settings. No variant means the floating dock. */
 @custom-variant quiet (&:where([data-sidebar="quiet"] *));
 @custom-variant classic (&:where([data-sidebar="classic"] *));
+/* Browse filters in a sidebar. No variant means the top bar. */
+@custom-variant filters-side (&:where([data-filters="sidebar"] *));
 
 /* Colours measured on store.steampowered.com (home and a product page), 2026-11-24.
    "static" keeps every token available, even before a screen uses it. */
